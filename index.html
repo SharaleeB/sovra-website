@@ -280,7 +280,7 @@ button { font: inherit; }
     <div class="eyebrow">Independent thinking. Connected marketing.</div>
     <h1>Strategy.<br>Creative.<br><span class="last">Execution<span class="slash">/</span></span></h1>
     <p class="hero-copy">We're a strategic marketing and communications partner connecting ideas, people and possibilities to move brands forward.</p>
-    <a class="cta" href="#contact">Let's talk <span>↗</span></a>
+    <a class="cta" href="#contact">Let's talk <span>→</span></a>
   </div>
   <div class="scroll-note">SCROLL TO EXPLORE ↓</div>
 </section>
@@ -297,7 +297,7 @@ button { font: inherit; }
 <section class="services" id="services">
   <div class="services-heading reveal">
     <div><div class="section-label">02 / What we do</div><h2>Our services<span class="slash">/</span></h2></div>
-    <p>Explore our capabilities ↗</p>
+    <p>Explore our capabilities →</p>
   </div>
   <div id="serviceList"></div>
 </section>
@@ -324,7 +324,7 @@ button { font: inherit; }
   <div class="section-label">04 / Start a conversation</div>
   <h2>Have a good<br>idea?<br><span>Let's make it happen.</span></h2>
   <p class="contact-intro">Whether you have a clear brief, a big ambition or simply know something needs to change, we'd love to hear about it.</p>
-  <a class="contact-link" href="mailto:hello@sovra.co.za">Get in touch ↗</a>
+  <a class="contact-link" href="mailto:hello@sovra.co.za">Get in touch →</a>
   <footer class="footer">
     <a class="logo" href="#home">SOVRA<span>/</span></a>
     <span>Strategy / Creative / Execution</span>
@@ -411,7 +411,7 @@ services.forEach((service, index) => {
   row.innerHTML = `
     <span class="service-number">0${index+1} /</span>
     <span class="service-name">${service.name}</span>
-    <span class="service-arrow">↗</span>`;
+    <span class="service-arrow">→</span>`;
   row.addEventListener("click", () => openService(index));
   serviceList.appendChild(row);
 });
@@ -429,7 +429,7 @@ function openService(index) {
     <h3>WHAT THIS ENCOMPASSES /</h3>
     <ul>${s.items.map(item => `<li>${item}</li>`).join("")}</ul>
     <p class="modal-end">${s.end}</p>
-    <a class="cta" href="#contact" onclick="closeService()">Let's talk <span>↗</span></a>`;
+    <a class="cta" href="#contact" onclick="closeService()">Let's talk <span>→</span></a>`;
   modal.classList.add("open");
   document.body.style.overflow = "hidden";
   modal.scrollTop = 0;
