@@ -1,0 +1,473 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#171715">
+<title>SOVRA — Strategy / Creative / Execution</title>
+<meta name="description" content="SOVRA is a strategic marketing and communications partner connecting ideas, people and possibilities.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --black: #171715;
+  --white: #f7f6f1;
+  --lime: #c4df00;
+  --stone: #bdb9ae;
+  --muted: #77766e;
+  --line: rgba(255,255,255,.2);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: 'DM Sans', sans-serif;
+  overflow-x: hidden;
+}
+a { color: inherit; text-decoration: none; }
+button { font: inherit; }
+::selection { background: var(--lime); color: var(--black); }
+
+.nav {
+  position: fixed; z-index: 20; top: 0; left: 0; width: 100%;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 25px 5.5%; transition: .35s ease;
+}
+.nav.scrolled {
+  background: rgba(23,23,21,.94);
+  backdrop-filter: blur(15px);
+  padding-top: 17px; padding-bottom: 17px;
+  border-bottom: 1px solid var(--line);
+}
+.logo { font-size: 25px; font-weight: 600; letter-spacing: -.08em; }
+.logo span, .slash { color: var(--lime); }
+.nav-links { display: flex; gap: 34px; align-items: center; }
+.nav-links a {
+  font-size: 10px; letter-spacing: .17em; text-transform: uppercase;
+  transition: color .25s;
+}
+.nav-links a:hover { color: var(--lime); }
+.menu-toggle {
+  display: none; background: none; border: 0; color: white;
+  font-size: 25px; cursor: pointer;
+}
+
+.hero {
+  min-height: 100svh; position: relative; display: flex;
+  align-items: center; padding: 150px 8% 90px; overflow: hidden;
+}
+.hero-image {
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(90deg, rgba(15,15,14,.82), rgba(15,15,14,.2) 75%),
+    linear-gradient(0deg, rgba(15,15,14,.65), transparent 60%),
+    url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=2200&q=85') center 45%/cover;
+  filter: grayscale(100%);
+  transform: scale(1.08);
+  animation: heroZoom 14s ease-out forwards;
+}
+@keyframes heroZoom { to { transform: scale(1); } }
+.hero-content { position: relative; z-index: 1; max-width: 950px; }
+.eyebrow {
+  font-size: 10px; letter-spacing: .28em; text-transform: uppercase;
+  color: var(--lime); margin-bottom: 30px;
+}
+.hero h1 {
+  font-size: clamp(54px, 9.5vw, 132px);
+  line-height: .91; letter-spacing: -.085em; font-weight: 500;
+  text-transform: uppercase;
+}
+.hero h1 .last { white-space: nowrap; }
+.hero-copy {
+  margin-top: 35px; max-width: 440px; color: #deddd7;
+  font-size: 14px; line-height: 1.8;
+}
+.cta {
+  display: inline-flex; align-items: center; gap: 25px;
+  border: 1px solid var(--lime); padding: 16px 20px;
+  margin-top: 30px; font-size: 10px; letter-spacing: .16em;
+  text-transform: uppercase; transition: .3s;
+}
+.cta:hover { background: var(--lime); color: var(--black); }
+.scroll-note {
+  position: absolute; right: 5.5%; bottom: 38px;
+  font-size: 9px; letter-spacing: .2em; color: #ddd;
+  writing-mode: vertical-rl;
+}
+
+.intro {
+  padding: 145px 10%; background: var(--white); color: var(--black);
+}
+.section-label {
+  font-size: 10px; letter-spacing: .22em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 38px;
+}
+.intro h2 {
+  font-size: clamp(38px, 6.4vw, 84px);
+  letter-spacing: -.07em; line-height: 1.02; font-weight: 500;
+  max-width: 1050px;
+}
+.intro h2 em {
+  font-family: 'Playfair Display', serif; font-weight: 500;
+}
+.intro-bottom {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 50px;
+  margin-top: 55px; align-items: start;
+}
+.intro-bottom p { font-size: 14px; line-height: 1.9; max-width: 480px; }
+.intro-tag { font-size: 11px; letter-spacing: .15em; text-transform: uppercase; }
+
+.services { padding: 120px 8%; }
+.services-heading {
+  display: flex; justify-content: space-between; align-items: end;
+  margin-bottom: 60px; gap: 20px;
+}
+.services-heading h2 {
+  font-size: clamp(45px, 7vw, 90px); letter-spacing: -.08em;
+  font-weight: 500;
+}
+.services-heading p {
+  font-size: 11px; letter-spacing: .13em; color: var(--stone);
+  text-transform: uppercase;
+}
+.service-row {
+  display: grid; grid-template-columns: 75px 1fr 50px;
+  gap: 15px; align-items: center; padding: 29px 0;
+  border-top: 1px solid var(--line); cursor: pointer;
+  transition: padding .3s, color .3s;
+}
+.service-row:last-child { border-bottom: 1px solid var(--line); }
+.service-row:hover { padding-left: 15px; color: var(--lime); }
+.service-number { font-size: 11px; color: var(--lime); letter-spacing: .1em; }
+.service-name {
+  font-size: clamp(22px, 3.3vw, 43px); font-weight: 400;
+  letter-spacing: -.055em; text-transform: uppercase;
+}
+.service-arrow { font-size: 25px; text-align: right; color: var(--lime); }
+
+.statement {
+  background: var(--lime); color: var(--black);
+  padding: 100px 8%; display: grid;
+  grid-template-columns: 1.4fr 1fr; gap: 50px; align-items: end;
+}
+.statement h2 {
+  font-size: clamp(55px, 9vw, 115px); line-height: .9;
+  letter-spacing: -.09em; font-weight: 500; text-transform: uppercase;
+}
+.statement p { font-size: 14px; line-height: 1.8; max-width: 400px; }
+
+.about {
+  padding: 140px 10%; display: grid;
+  grid-template-columns: .8fr 1.2fr; gap: 70px;
+}
+.about h2 {
+  font-size: clamp(42px, 6vw, 75px); line-height: .98;
+  letter-spacing: -.07em; font-weight: 500;
+}
+.about-copy p { font-size: 14px; line-height: 1.9; color: #d2d0c8; margin-bottom: 20px; }
+.about-copy .signature {
+  font-family: 'Playfair Display', serif; font-style: italic;
+  font-size: 25px; color: var(--lime); margin-top: 30px;
+}
+
+.contact {
+  background: var(--white); color: var(--black);
+  padding: 120px 8% 60px;
+}
+.contact h2 {
+  font-size: clamp(55px, 10vw, 130px); line-height: .9;
+  letter-spacing: -.09em; font-weight: 500;
+}
+.contact h2 span { color: #92a900; }
+.contact-intro { margin-top: 35px; font-size: 14px; line-height: 1.8; max-width: 430px; }
+.contact-link {
+  display: inline-block; margin-top: 30px; padding-bottom: 8px;
+  border-bottom: 1px solid var(--black); font-size: 12px;
+  letter-spacing: .15em; text-transform: uppercase;
+}
+.footer {
+  margin-top: 110px; padding-top: 25px; border-top: 1px solid #ccc;
+  display: flex; justify-content: space-between; gap: 20px;
+  font-size: 10px; letter-spacing: .12em; text-transform: uppercase;
+}
+
+.reveal {
+  opacity: 0; transform: translateY(35px);
+  transition: opacity .8s ease, transform .8s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* Service detail overlay */
+.modal {
+  position: fixed; inset: 0; z-index: 40;
+  background: var(--black); overflow-y: auto;
+  padding: 110px 10% 80px;
+  opacity: 0; visibility: hidden; transform: translateY(25px);
+  transition: .4s ease;
+}
+.modal.open { opacity: 1; visibility: visible; transform: translateY(0); }
+.modal-close {
+  position: fixed; top: 25px; right: 5.5%; z-index: 42;
+  border: 1px solid var(--line); background: var(--black);
+  color: white; padding: 12px 17px; cursor: pointer;
+  letter-spacing: .12em; font-size: 10px;
+}
+.modal h2 {
+  font-size: clamp(42px, 8vw, 95px); line-height: .95;
+  letter-spacing: -.075em; font-weight: 500; text-transform: uppercase;
+  max-width: 950px; margin: 25px 0;
+}
+.modal .modal-kicker { color: var(--lime); font-size: 10px; letter-spacing: .2em; }
+.modal .modal-lead { font-size: 20px; max-width: 650px; line-height: 1.5; margin: 30px 0 20px; }
+.modal .modal-description { color: #c9c7bf; max-width: 650px; line-height: 1.9; font-size: 14px; }
+.modal h3 { color: var(--lime); font-size: 11px; letter-spacing: .18em; margin: 55px 0 20px; }
+.modal ul { list-style: none; max-width: 700px; }
+.modal li { padding: 14px 0; border-bottom: 1px solid var(--line); font-size: 15px; }
+.modal li::before { content: "/ "; color: var(--lime); }
+.modal .modal-end { margin-top: 55px; color: var(--stone); font-size: 13px; max-width: 600px; line-height: 1.8; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation: none !important; transition: none !important; }
+  .reveal { opacity: 1; transform: none; }
+}
+@media(max-width:700px) {
+  .nav { padding: 20px 6%; }
+  .menu-toggle { display: block; }
+  .nav-links {
+    display: none; position: absolute; top: 65px; left: 0; width: 100%;
+    background: var(--black); padding: 28px 7%; flex-direction: column;
+    align-items: flex-start; gap: 25px; border-bottom: 1px solid var(--line);
+  }
+  .nav-links.show { display: flex; }
+  .hero { min-height: 90svh; padding: 130px 7% 90px; }
+  .hero h1 { font-size: clamp(48px, 13vw, 78px); }
+  .hero h1 .last { white-space: normal; }
+  .hero-copy { font-size: 13px; }
+  .intro, .services, .about, .contact { padding: 85px 7%; }
+  .intro-bottom, .about, .statement { grid-template-columns: 1fr; gap: 28px; }
+  .services-heading { align-items: start; flex-direction: column; margin-bottom: 35px; }
+  .service-row { grid-template-columns: 42px 1fr 25px; padding: 23px 0; }
+  .service-name { font-size: 21px; }
+  .statement { padding: 80px 7%; }
+  .modal { padding: 100px 7% 60px; }
+  .modal h2 { font-size: 45px; }
+  .footer { flex-direction: column; margin-top: 75px; }
+}
+</style>
+</head>
+
+<body>
+<header class="nav" id="navbar">
+  <a class="logo" href="#home">SOVRA<span>/</span></a>
+  <button class="menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
+  <nav class="nav-links" id="navLinks">
+    <a href="#home">Home</a>
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="hero-image"></div>
+  <div class="hero-content">
+    <div class="eyebrow">Independent thinking. Connected marketing.</div>
+    <h1>Strategy.<br>Creative.<br><span class="last">Execution<span class="slash">/</span></span></h1>
+    <p class="hero-copy">We're a strategic marketing and communications partner connecting ideas, people and possibilities to move brands forward.</p>
+    <a class="cta" href="#contact">Let's talk <span>↗</span></a>
+  </div>
+  <div class="scroll-note">SCROLL TO EXPLORE ↓</div>
+</section>
+
+<section class="intro reveal">
+  <div class="section-label">01 / The bigger picture</div>
+  <h2>Good marketing doesn't happen in silos. <em>It happens when everything works together.</em></h2>
+  <div class="intro-bottom">
+    <p>We bring strategic thinking, creative direction and hands-on execution into one connected approach. We work alongside brands to identify opportunities, solve challenges and turn ideas into meaningful action.</p>
+    <div class="intro-tag">Think bigger.<br>Connect better.<br>Do more<span class="slash">/</span></div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="services-heading reveal">
+    <div><div class="section-label">02 / What we do</div><h2>Our services<span class="slash">/</span></h2></div>
+    <p>Explore our capabilities ↗</p>
+  </div>
+  <div id="serviceList"></div>
+</section>
+
+<section class="statement">
+  <h2 class="reveal">Ideas<br>in motion<span>/</span></h2>
+  <p class="reveal">We're big-picture thinkers with an eye for the details. We connect the moving parts of marketing and communications to create work that means something — and makes things happen.</p>
+</section>
+
+<section class="about reveal" id="about">
+  <div>
+    <div class="section-label">03 / A little about us</div>
+    <h2>We see the bigger picture.</h2>
+  </div>
+  <div class="about-copy">
+    <p>SOVRA is a strategic marketing and communications partner built around one simple belief: everything works better when it works together.</p>
+    <p>We bring different disciplines, perspectives and capabilities into one connected approach. Combining strategic thinking with creative energy and practical execution, we help brands navigate their challenges, uncover opportunities and bring ideas to life.</p>
+    <p>We're creative, curious and collaborative. We believe in asking better questions, finding fresh perspectives and making the details count.</p>
+    <div class="signature">Considered thinking. Creative doing. Connected results.</div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="section-label">04 / Start a conversation</div>
+  <h2>Have a good<br>idea?<br><span>Let's make it happen.</span></h2>
+  <p class="contact-intro">Whether you have a clear brief, a big ambition or simply know something needs to change, we'd love to hear about it.</p>
+  <a class="contact-link" href="mailto:hello@sovra.co.za">Get in touch ↗</a>
+  <footer class="footer">
+    <a class="logo" href="#home">SOVRA<span>/</span></a>
+    <span>Strategy / Creative / Execution</span>
+    <span>© <span id="year"></span> SOVRA</span>
+  </footer>
+</section>
+</main>
+
+<div class="modal" id="serviceModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <button class="modal-close" id="modalClose">CLOSE ✕</button>
+  <div id="modalContent"></div>
+</div>
+
+<script>
+const services = [
+{
+name:"Marketing strategy", kicker:"01 / STRATEGY",
+lead:"Start with the why. Build with purpose.",
+description:"Every successful marketing initiative needs direction. We help brands understand where they are, where they want to go and what it takes to get there.",
+items:["Marketing audits and assessments","Brand positioning and strategy","Market and competitor research","Audience insights and segmentation","Marketing plans and roadmaps","Channel strategy and planning","Budget allocation and planning","KPI setting and performance measurement"],
+end:"We turn business objectives into clear marketing direction, giving every creative idea and campaign a reason to exist."
+},
+{
+name:"Creative direction", kicker:"02 / CREATIVE",
+lead:"Good ideas deserve great execution.",
+description:"We bring ideas to life through considered creative direction, visual storytelling and content that captures attention while staying true to the brand.",
+items:["Creative concepts and development","Art direction and visual identity","Campaign creative direction","Brand storytelling","Content concepts and planning","Photography and videography direction","Graphic design direction","Creative guidelines and consistency"],
+end:"From the first spark of an idea to the final visual, we create work that looks considered, feels relevant and has a clear purpose."
+},
+{
+name:"Campaign development", kicker:"03 / CAMPAIGNS",
+lead:"From big idea to everywhere it needs to be.",
+description:"We develop connected campaigns that bring brands, audiences and messages together. Every campaign starts with a clear objective and grows into an idea that works across the right touchpoints.",
+items:["Campaign strategy and planning","Campaign concepts and messaging","Integrated campaign development","Product and brand launches","Promotional campaigns","Multi-channel campaign rollouts","Campaign coordination and execution","Performance tracking and optimisation"],
+end:"We don't just create campaigns that look good. We create campaigns designed to achieve something."
+},
+{
+name:"Social media & digital marketing", kicker:"04 / DIGITAL",
+lead:"More than showing up. Making an impact.",
+description:"Your digital presence should do more than fill a content calendar. We help brands build meaningful connections, reach the right audiences and turn attention into action.",
+items:["Social media strategy and management","Content calendars and planning","Community management","Paid social advertising","Google Ads and PPC","Search engine optimisation (SEO)","Digital campaign management","Analytics, reporting and optimisation"],
+end:"We combine creativity, consistency and performance to make every digital touchpoint work harder."
+},
+{
+name:"Brand & communications", kicker:"05 / BRAND",
+lead:"Make sure every message means something.",
+description:"Strong brands are built through consistency, clarity and connection. We help shape how brands look, sound and communicate, creating a recognisable presence across every interaction.",
+items:["Brand development and positioning","Brand messaging and tone of voice","Communication strategies","Internal and external communications","Brand guidelines and consistency","Public relations and media support","Customer and stakeholder communications","Brand storytelling"],
+end:"We help brands find their voice, communicate with confidence and build relationships that last."
+},
+{
+name:"Website & digital projects", kicker:"06 / DIGITAL PROJECTS",
+lead:"Digital experiences built with purpose.",
+description:"A website is more than a digital storefront. It's an important part of the brand experience. We help plan, develop and coordinate digital projects that make it easier for brands to connect with their customers.",
+items:["Website strategy and planning","Website design and development","E-commerce experiences","Website content and optimisation","Digital platform development","Marketplace strategy and management","System and platform integrations","Digital project management"],
+end:"From the initial idea to the final launch, we bring the right people, platforms and processes together."
+},
+{
+name:"Influencer marketing", kicker:"07 / INFLUENCE",
+lead:"The right voices. The right conversations.",
+description:"We connect brands with creators and communities who can bring their stories to life. From identifying the right partnerships to managing the campaign, we make influence more intentional.",
+items:["Influencer and creator strategy","Creator identification and research","Influencer partnerships and outreach","Campaign concepts and briefs","Collaboration and contract coordination","Campaign management","Content approvals and usage coordination","Reporting and performance evaluation"],
+end:"We focus on meaningful partnerships that feel authentic to the brand and relevant to the audience."
+},
+{
+name:"Events & experiences", kicker:"08 / EXPERIENCES",
+lead:"Create moments people remember.",
+description:"Great events do more than bring people together. They create experiences that bring brands to life. We develop and coordinate events that connect people, communicate a message and leave a lasting impression.",
+items:["Event strategy and concept development","Corporate events and conferences","Product launches and brand unveilings","Brand activations and experiential marketing","Retail and in-store experiences","Event creative direction and theming","Event planning and project management","Supplier, venue and production coordination","Guest experience and event communications","Event content and post-event amplification"],
+end:"From the initial concept to the final guest experience, we bring every detail together to make the moment count."
+}
+];
+
+const serviceList = document.getElementById("serviceList");
+services.forEach((service, index) => {
+  const row = document.createElement("button");
+  row.className = "service-row";
+  row.type = "button";
+  row.style.width = "100%";
+  row.style.background = "transparent";
+  row.style.borderLeft = "0";
+  row.style.borderRight = "0";
+  row.style.color = "inherit";
+  row.innerHTML = `
+    <span class="service-number">0${index+1} /</span>
+    <span class="service-name">${service.name}</span>
+    <span class="service-arrow">↗</span>`;
+  row.addEventListener("click", () => openService(index));
+  serviceList.appendChild(row);
+});
+
+const modal = document.getElementById("serviceModal");
+const modalContent = document.getElementById("modalContent");
+
+function openService(index) {
+  const s = services[index];
+  modalContent.innerHTML = `
+    <div class="modal-kicker">${s.kicker}</div>
+    <h2 id="modalTitle">${s.name}<span class="slash">.</span></h2>
+    <p class="modal-lead">${s.lead}</p>
+    <p class="modal-description">${s.description}</p>
+    <h3>WHAT THIS ENCOMPASSES /</h3>
+    <ul>${s.items.map(item => `<li>${item}</li>`).join("")}</ul>
+    <p class="modal-end">${s.end}</p>
+    <a class="cta" href="#contact" onclick="closeService()">Let's talk <span>↗</span></a>`;
+  modal.classList.add("open");
+  document.body.style.overflow = "hidden";
+  modal.scrollTop = 0;
+  document.getElementById("modalClose").focus();
+}
+function closeService() {
+  modal.classList.remove("open");
+  document.body.style.overflow = "";
+}
+document.getElementById("modalClose").addEventListener("click", closeService);
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape") closeService();
+});
+modal.addEventListener("click", e => {
+  if (e.target === modal) closeService();
+});
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+      observer.unobserve(entry.target);
+    }
+  });
+}, {threshold: 0.12});
+document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+
+const navbar = document.getElementById("navbar");
+window.addEventListener("scroll", () => {
+  navbar.classList.toggle("scrolled", window.scrollY > 40);
+});
+document.getElementById("menuToggle").addEventListener("click", () => {
+  document.getElementById("navLinks").classList.toggle("show");
+});
+document.querySelectorAll(".nav-links a").forEach(link => {
+  link.addEventListener("click", () => document.getElementById("navLinks").classList.remove("show"));
+});
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
