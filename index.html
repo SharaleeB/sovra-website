@@ -67,10 +67,34 @@ button { font: inherit; }
     linear-gradient(90deg, rgba(15,15,14,.82), rgba(15,15,14,.2) 75%),
     linear-gradient(0deg, rgba(15,15,14,.65), transparent 60%),
 url('sovra-hero.jpg');
+  background-size: cover;
+background-position: center center;
+background-repeat: no-repeat;
   filter: grayscale(100%);
   transform: scale(1.08);
   animation: heroZoom 14s ease-out forwards;
 }
+  
+/* Responsive hero image positioning */
+
+@media (max-width: 600px) {
+  .hero-image {
+    background-position: 62% center;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+  .hero-image {
+    background-position: 56% center;
+  }
+}
+
+@media (min-width: 1025px) {
+  .hero-image {
+    background-position: center center;
+  }
+}
+
 @keyframes heroZoom { to { transform: scale(1); } }
 .hero-content { position: relative; z-index: 1; max-width: 950px; }
 .eyebrow {
